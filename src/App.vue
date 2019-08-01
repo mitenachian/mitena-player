@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <musicTopBox/>
-    <musicList/>
+    <home/>
   </div>
 </template>
 
 <script>
-import musicTopBox from './components/musicTopBox.vue'
-import musicList from './components/musicList.vue'
+import home from './components/home.vue'
 export default {
   name: 'app',
   components: {
-    musicTopBox,
-    musicList
+    home
   }
 }
 </script>

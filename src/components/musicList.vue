@@ -1,16 +1,15 @@
 <template>
   <div>
-    <el-row v-for="(item, index) in list" :key="index" @click="changeSong(index)">
-      <el-col :span="2" :md="2" :xs="4">
-        <div class="coverImg">
-          <el-image
-           style="width: 60px; height: 60px"
+    <el-row  v-for="(item, index) in list" :key="index" @click="changeSong(index)">
+      <el-col :span="2" :xl="2" :lg="2" :md="4" :sm="4" :xs="24">
+        <div class="imgbox" v-if="window.width >=768">>
+          <el-image class="coverImg"
            :src="image(item)"
            fit="fill"
            ></el-image>
         </div>
       </el-col>
-      <el-col :span="22"  :md="22" :xs="20" 
+      <el-col :span="22" :xl="22" :lg="22" :md="20" :sm="20" :xs="24" 
       :class="{ 'musicNow': index === currentIndex }">
         <div class="grid-content bg-purple-light listItem">
           <div class="text">
@@ -45,7 +44,18 @@ export default {
       return {
        currentIndex:1,
        list:music,
+       window: {
+          width: 0,
+          height: 0
+          },
       };
+  },
+    created() {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     image(current) {
@@ -53,13 +63,20 @@ export default {
     },
     changeSong(index) {
       this.$store.commit('changeSong', index);
-    }
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.el-row {
+  margin:10px 0;
+}
 .clearFix{
     display: block;
     content: "";
@@ -82,10 +99,10 @@ export default {
 }
 .grid-content {
   border-radius: 4px;
-  min-height: 60px;
+  min-height: 100px;
 }
 .bg-purple-light {
-    background: #e5e9f2;
+  background: #e5e9f2;
 }
 .pdlf_10 {
   padding-left: 10px;
@@ -107,4 +124,17 @@ export default {
   border-radius: 4px;
   box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
 }
+.imgbox {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+.coverImg {
+  position: absolute;
+  width: 100%; 
+  height: 100%; 
+  border-radius:5px;
+  left: 0; top: 0;
+}
+
 </style>
