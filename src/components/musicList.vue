@@ -5,7 +5,7 @@
         <div class="imgbox" v-if="window.width >=768">>
           <el-image class="coverImg"
            :src="image(item)"
-           fit="fill"
+           fit="cover"
            ></el-image>
         </div>
       </el-col>

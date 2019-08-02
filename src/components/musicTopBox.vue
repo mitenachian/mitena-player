@@ -21,7 +21,7 @@
       <div class="padding_10">
         <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10">
           <div class="inline">
-            <div class="iconBox box2"><div class="content"><font-awesome-icon icon="angle-double-left" /></div></div>
+            <div class="iconBox box2"><div class="content"><font-awesome-icon icon="angle-double-left"/></div></div>
             <div class="iconBox box2"><div class="content"><font-awesome-icon icon="play" /></div></div>
             <div class="iconBox box2"><div class="content"><font-awesome-icon icon="pause" /></div></div>
             <div class="iconBox box2"><div class="content"><font-awesome-icon icon="angle-double-right" /></div></div>
