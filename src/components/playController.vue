@@ -200,7 +200,7 @@ export default {
       }
     },
     seek(e) {
-      console.log("e + >" + e);
+      console.log("e - >" + e);
       console.log("duration=>"+ this.duration);
       console.log("currentTime=>"+this.currentTime);
       seek(
