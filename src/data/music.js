@@ -1,5 +1,13 @@
 const music = [
   {
+    title: 'Always Remember Us This Way',
+    album: 'musicImg06.jpeg',
+    videoId: 'L0FQb3RMfPg',
+    artist: 'Lady Gaga',
+    time: '03:35',
+    isLove: false
+  },
+  {
     title: 'Forever and Ever, Amen',
     album: 'musicImg01.png',
     videoId: 'utflXHxsUJ8',
@@ -34,27 +42,19 @@ const music = [
   {
     title: "I'll Never Love Again",
     album: 'musicImg05.png',
-    videoId: '7F37r50VUTQ',
-    artist: 'Taylor Swift, ZAYN',
-    time: '04:16',
-    isLove: false
-  },
-  {
-    title: 'Always Remember Us This Way',
-    album: 'musicImg06.jpeg',
-    videoId: 'L0FQb3RMfPg',
-    artist: 'Lady Gaga',
-    time: '03:35',
+    videoId: '52nfjRzIaj8',
+    artist: 'Lady Gaga, Bradley Cooper',
+    time: '04:53',
     isLove: false
   },
   {
     title: 'Speechless',
-    album: 'musicImg07.jpg',
+    album: 'musicImg08.jpg',
     videoId: 'mw5VIEIvuMI',
     artist: 'Naomi Scott',
     time: '03:26',
     isLove: false
-  }
+  },
 ];
 
 export default music;

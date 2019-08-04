@@ -1,7 +1,7 @@
 <template>
   <div class="imgStyle">
     <el-image
-      :src="imgLoad('musicImg01.png')" 
+      :src="image" 
       >
     </el-image>
   </div>
@@ -10,15 +10,13 @@
 <script>
 export default {
   name: 'musicAlbum',
-    data() {
-      return {
-
-      }
-  },
-   methods: {
-    imgLoad(current) {
-      return require(`../assets/${current}`);
+  computed: {
+    current() {
+      return this.$store.getters.current;
     },
+    image() {
+      return require(`../assets/${this.current.album}`);
+    }
   }
 
 }

@@ -28,7 +28,7 @@
                     </el-submenu>
                 </el-submenu>
                 <el-menu-item index="2">
-                    <i class="el-icon-menu"></i>
+                    <i class="el-icon-headset"></i>
                     <span slot="title">MUSIC</span>
                 </el-menu-item>
                 <el-menu-item index="3" disabled>
@@ -36,7 +36,7 @@
                     <span slot="title">ARTIST</span>
                 </el-menu-item>
                 <el-menu-item index="4">
-                    <i class="el-icon-setting"></i>
+                    <i class="el-icon-s-ticket"></i>
                     <span slot="title">EVENTS</span>
                 </el-menu-item>
             </el-menu>
@@ -137,6 +137,7 @@ data() {
 .el-header {
     overflow: hidden;
     padding:0 !important;
+    border-bottom: 2px solid #f3b92a;
 }
 .el-footer {
      background-color: #434a50;
@@ -161,5 +162,9 @@ data() {
     margin:0px;
     padding:0px;
     overflow-y: hidden;
+    background-color: #f3b92a;
+    background-image:url('../assets/Iam.jpg'); 
+    background-repeat: no-repeat;
+    background-position: 0% 100%; 
 }
 </style>
