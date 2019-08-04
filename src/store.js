@@ -46,17 +46,6 @@ export default new Vuex.Store({
         state.repeatMode = 'all';
       }
     },
-   /* toggleLove(state, index) {
-      state.list = state.list.map((item, i) => {
-        if (index === i) {
-          return {
-            ...item,
-            isLove: !item.isLove
-          };
-        }
-        return item;
-      });
-    },*/
     changeSong(state, index) {
       state.index = index;
     },
