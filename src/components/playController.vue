@@ -21,8 +21,8 @@
           <div>
             <p>
               <span class="controlIcon"  @click="prev"><font-awesome-icon icon="angle-double-left" /></span>
-              <span v-if="isPlaying"  @click="play" class="controlIcon"><font-awesome-icon icon="pause" /></span>
-              <span v-else class="controlIcon"  @click="pause"><font-awesome-icon icon="play"/></span>
+              <span v-if="isPlaying"  @click="pause" class="controlIcon"><font-awesome-icon icon="pause" /></span>
+              <span v-else class="controlIcon"  @click="play"><font-awesome-icon icon="play"/></span>
               <span class="controlIcon" @click="next"><font-awesome-icon icon="angle-double-right" /></span>
             </p>
           </div>
@@ -36,7 +36,7 @@
             <div class="clearFix"></div>
             </div>
             <!--<el-progress  @click="seek" :percentage="percentage" color="#f56c6c"></el-progress>-->
-            <el-slider refs="progress"  @change="seek" v-model="currentTime" :min="0" :max="duration" :show-tooltip="false"></el-slider>
+            <el-slider ref="progress"  @change="seek" :value="timeBar" :min="0" :max="duration" :show-tooltip="false" ></el-slider>
           </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
@@ -80,7 +80,7 @@ import {
   stop,
   seek,
   setVolume
-} from '@/yt/ytplayer.js';
+} from '@/yt/ytplayer';
 export default {
   components: {
   },
@@ -98,6 +98,10 @@ export default {
     };
   },
   computed: {
+    timeBar(){
+      if(!this.currentTime) return 0;
+      return this.currentTime;
+    },
     percentage() {
       if (!this.currentTime || !this.duration) return 0;
       return (this.currentTime / this.duration) * 100;
@@ -196,9 +200,13 @@ export default {
       }
     },
     seek(e) {
+      console.log("e + >" + e);
+      console.log("duration=>"+ this.duration);
+      console.log("currentTime=>"+this.currentTime);
       seek(
-        (e.offsetX / this.$refs.progress.getBoundingClientRect().width) *
-          this.duration
+        // (e.offsetX / this.$refs.progress.getBoundingClientRect().width) *
+        // this.duration
+        parseFloat(this.currentTime)
       );
     },
     next() {
@@ -228,7 +236,7 @@ export default {
       this.$store.commit('toggleRepeatMode');
     },
     onVolumeChange(e) {
-      this.volume = parseInt(e.target.value, 10);
+      // this.volume = parseInt(e.target.value, 10);
       setVolume(this.volume);
     },
     toggleVideo() {

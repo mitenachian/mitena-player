@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import music from '../data/music.js';
+// import music from '../data/music.js';
 import musicAlbum from './musicAlbum.vue';
 export default {
   components: {
