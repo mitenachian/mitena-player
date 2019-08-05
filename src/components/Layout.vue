@@ -60,7 +60,7 @@
                         </el-submenu>
                     </el-submenu>
                     <el-menu-item index="3" disabled>News</el-menu-item>
-                    <el-menu-item index="4" >WHY</el-menu-item>
+                    <el-menu-item index="4" >拖曳壞掉只能用點的</el-menu-item>
                 </el-menu>
             </el-header>
             <el-main>

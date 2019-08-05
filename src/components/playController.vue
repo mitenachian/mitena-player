@@ -36,7 +36,7 @@
             <div class="clearFix"></div>
             </div>
             <!--<el-progress  @click="seek" :percentage="percentage" color="#f56c6c"></el-progress>-->
-            <el-slider ref="progress"  @change="seek" :value="timeBar" :min="0" :max="duration" :show-tooltip="false" ></el-slider>
+            <el-slider ref="progress" class="progressTime"  @change="seek" @mouseleave="seek"  v-model="currentTime" :min="0" :max="duration" :show-tooltip="false" ></el-slider>
           </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4">
@@ -56,6 +56,7 @@
              <font-awesome-icon icon="retweet" />
              </span>
              <span class="controlIcon"
+             :class="{ 'colorYellow': showVideo }"
              @click="toggleVideo"
              >
              <i class="el-icon-s-platform"></i>
@@ -99,15 +100,17 @@ export default {
   },
   computed: {
     timeBar(){
-      if(!this.currentTime) return 0;
+      if(!this.currentTime || this.duration) return 0;
       return this.currentTime;
     },
-    percentage() {
-      if (!this.currentTime || !this.duration) return 0;
-      return (this.currentTime / this.duration) * 100;
-    },
-    bufferPercentage() {
-      return this.buffer * 100;
+    timeBar2: {
+      get(){
+        if(!this.currentTime || this.duration) return 0;
+        return this.currentTime;
+      },
+      set(val){
+        this.currentTime = val;
+      },
     },
     index() {
       return this.$store.state.index;
@@ -151,7 +154,6 @@ export default {
   },
   methods: {
     play() {
-      console.log("現正播放" + this.current.title)
       if (this.current) {
         play(this.current, this.onPlay, this.onPause, this.onEnd);
       }
@@ -161,8 +163,8 @@ export default {
       this.duration = duration;
       this.currentTime = currentTime;
       this.intervalId = setInterval(() => {
-        this.currentTime = getCurrentTime();
-        this.buffer = getBuffer();
+          this.currentTime = getCurrentTime();
+          this.buffer = getBuffer();
       }, 300);
     },
     clearInterval() {
@@ -200,9 +202,12 @@ export default {
       }
     },
     seek(e) {
-      seek(
-        parseFloat(this.currentTime)
-      );
+      // e = currentTime
+      // let totalWidth = this.$el.querySelector('.progressTime').getBoundingClientRect().width
+      // let gotoTime = ( this.currentTime/ this.duration ) *100;
+      console.log(e);
+      // seek((e /this.duration) * 100);
+      seek (e);
     },
     next() {
       const isPlayingNow = this.isPlaying;
