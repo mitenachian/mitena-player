@@ -1,5 +1,5 @@
 # mitena-player
-#####簡易播放器
+    簡易播放器
 [DEMO](https://mitenachian.github.io/mitena-player/)  
 
 ## Project setup
