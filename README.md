@@ -1,5 +1,5 @@
 # mitena-player
-    簡易播放器
+    簡易播放器 練習-THE F2E 2ND
 [DEMO](https://mitenachian.github.io/mitena-player/)  
 
 ![image](https://github.com/mitenachian/mitena-player/blob/master/mt-player.jpg?raw=true)
