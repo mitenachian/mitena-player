@@ -2,6 +2,7 @@
     簡易播放器
 [DEMO](https://mitenachian.github.io/mitena-player/)  
 
+![image](https://github.com/mitenachian/mitena-player/blob/master/mt-player.jpg?raw=true)
 ## Project setup
 ```
 npm install
